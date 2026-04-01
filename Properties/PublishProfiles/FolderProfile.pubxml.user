@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- https://go.microsoft.com/fwlink/?LinkID=208121. -->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\4134331\OneDrive - Jabil\Documents\Dashboard Ship Order\ShipOrderBack\bin\Release\net10.0\publish\</_PublishTargetUrl>
+    <History>True|2026-04-01T20:19:59.1369995Z||;True|2026-04-01T16:05:54.0170449-04:00||;True|2026-04-01T15:58:34.4654857-04:00||;True|2026-04-01T15:21:16.0816751-04:00||;True|2026-04-01T15:15:29.5273380-04:00||;True|2026-04-01T14:40:47.4443766-04:00||;</History>
+    <LastFailureDetails />
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="ConnectionEPS">
+      <Value>Server=BRMANM0SQL01%3bDatabase=EPS%3bUid=App_Colaboradores%3bPwd=base!colab%3bEncrypt=true%3bTrustServerCertificate=true%3b</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="ConnectionJEMS">
+      <Value>Server=BRMANM0SQL01%3bDatabase=EPS%3bUid=App_Colaboradores%3bPwd=base!colab%3bEncrypt=true%3bTrustServerCertificate=true%3b</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="ConnectionPrintForm">
+      <Value>Server=BRMANM0SQL01%3bDatabase=EPS%3bUid=App_Colaboradores%3bPwd=base!colab%3bEncrypt=true%3bTrustServerCertificate=true%3b</Value>
+    </DestinationConnectionStrings>
+    <DestinationConnectionStrings Include="ConnectionQuarentine">
+      <Value>Server=BRMANM0SQL01%3bDatabase=EPS%3bUid=App_Colaboradores%3bPwd=base!colab%3bEncrypt=true%3bTrustServerCertificate=true%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+@ShipOrderBack_HostAddress = http://localhost:5078
+
+GET {{ShipOrderBack_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
