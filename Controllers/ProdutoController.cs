@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ShipOrderBack.Context;
 using ShipOrderBack.Model;
 using ShipOrderBack.Service.Interface;
 
@@ -7,14 +8,13 @@ namespace ShipOrderBack.Controllers
     [Route("api/[controller]")]
     [ApiController]
 
-    public class ProdutoController : ControllerBase
+    public class ProdutoController(IQuarentineService quarentineService, ILabelService validateLabel, IPackoutService packoutService) : ControllerBase
     {
-        private readonly IValidateService _validateLabel;
+        private readonly IQuarentineService _quarentineService = quarentineService;
+        private readonly ILabelService _validateLabel = validateLabel;
+        private readonly IPackoutService _packoutService = packoutService;
 
-        public ProdutoController(IValidateService validateLabel)
-        {
-            _validateLabel = validateLabel;
-        }
+
 
         [HttpGet("LabelFailAll/{rangeQty:int?}")]
         public async Task<ActionResult<IEnumerable<ValidationLabelHistoryArcon>>> Get(int rangeQty = 100) {
@@ -57,7 +57,7 @@ namespace ShipOrderBack.Controllers
         {
             try
             {
-                var packout = await _validateLabel.GetPackoutAll(rangeQty);
+                var packout = await _packoutService.GetPackoutAll(rangeQty);
                
                 return Ok(packout);
             }
@@ -81,7 +81,7 @@ namespace ShipOrderBack.Controllers
                 {
                     return BadRequest("Invalid date format for dateEnd. Please use a valid date format.");
                 }
-                var packout = await _validateLabel.GetPackoutCustomer(customerId, startDate, endDate);
+                var packout = await _packoutService.GetPackoutCustomer(customerId, startDate, endDate);
 
                 return Ok(packout);
 
@@ -98,7 +98,7 @@ namespace ShipOrderBack.Controllers
         {
             try
             {
-                var prodquarentine = await _validateLabel.GetQuarentinesAll(rangeQty);
+                var prodquarentine = await _quarentineService.GetQuarentinesAll(rangeQty);
                 return Ok(prodquarentine);
 
             }
@@ -123,7 +123,7 @@ namespace ShipOrderBack.Controllers
                     return BadRequest("Invalid date format for dateEnd. Please use a valid date format.");
                 }
 
-                var serials = await _validateLabel.GetQuarentine(customerId, startDate, endDate);
+                var serials = await _quarentineService.GetQuarentine(customerId, startDate, endDate);
 
                 return Ok(serials);
 

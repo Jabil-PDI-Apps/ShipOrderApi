@@ -45,17 +45,19 @@ builder.Services.AddControllers()
     .AddJsonOptions(options =>
         options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
-// Necessário para o Swagger detectar controllers/endpoints
+
 builder.Services.AddEndpointsApiExplorer();
 
-// Swagger
+
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IValidateService, ValidateService>();
+builder.Services.AddScoped<IQuarentineService, QuarentineService>();
+builder.Services.AddScoped<ILabelService, LabelService>();
+builder.Services.AddScoped<IPackoutService, PackoutService>();
 
 var app = builder.Build();
 
-// Swagger
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
